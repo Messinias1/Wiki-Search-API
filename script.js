@@ -1,6 +1,5 @@
 /* global fetch */
 // make a function for the button to perform a task
-
 function handleClick() {
   
   // create a variable that gets the input value 
@@ -20,24 +19,24 @@ function handleClick() {
   });
 }
   // create a function to display the api search to the dom
-  function displayResults(results) {
+  function displayResults(data) {
     
-    // create a variable using .map() to make a new array with the search results value and index
-    const iterateThruLinks = results[3].map(function(item, index) {
+    // create a variable using .map() to make a new array with the search data value and index
+    const iterateThruData = data[3].map(function(element, index) {
       
       // create variables for link name and link description
-      const title = results[1][index];
-      const content = results[2][index];
+      const title = data[1][index];
+      const content = data[2][index];
       
       // create outline for how the data will be displayed to the page
       return `
       
       <li>
-      <a href=${item}>${title}</a>
+      <a href=${element}>${title}</a>
       </li>
       <h6>${content}</h6>
       <br>`;
     });
     // create document manipulation to display data to the webpage
-    document.getElementById("results").innerHTML = iterateThruLinks.join("");
+    document.getElementById("results").innerHTML = iterateThruData.join("");
   }
